@@ -1,0 +1,580 @@
+{
+    "directory-structure": {
+        ".cursorrules": null,
+        ".git": {
+            "COMMIT_EDITMSG": null,
+            "config": null,
+            "description": null,
+            "HEAD": null,
+            "hooks": {
+                "applypatch-msg.sample": null,
+                "commit-msg.sample": null,
+                "fsmonitor-watchman.sample": null,
+                "post-update.sample": null,
+                "pre-applypatch.sample": null,
+                "pre-commit.sample": null,
+                "pre-merge-commit.sample": null,
+                "pre-push.sample": null,
+                "pre-rebase.sample": null,
+                "pre-receive.sample": null,
+                "prepare-commit-msg.sample": null,
+                "push-to-checkout.sample": null,
+                "sendemail-validate.sample": null,
+                "update.sample": null
+            },
+            "index": null,
+            "info": {
+                "exclude": null
+            },
+            "logs": {
+                "HEAD": null,
+                "refs": {
+                    "heads": {
+                        "master": null
+                    }
+                }
+            },
+            "objects": {
+                "00": {
+                    "9d81307af6eebc18a53a420ce40f1e45523d9c": null
+                },
+                "01": {
+                    "f210579e2e4ed426bc30bf97e5a08180aa6983": null
+                },
+                "05": {
+                    "184baa95382c77ed2f6727754068d44b2860a6": null,
+                    "eacc2c1b1a3a09ae04f3f22e73fc497d36e707": null
+                },
+                "07": {
+                    "f2081349fbbecf779bc8fc22819f36a780267d": null
+                },
+                "08": {
+                    "b32342d9e45eecb8f6c051f8a24a25b1dd3824": null
+                },
+                "09": {
+                    "2fe808ca12a10040d60fae86c3261b972b6e79": null
+                },
+                "0a": {
+                    "8912e1119d7ecf6c65de7e4919372a8fec9666": null
+                },
+                "0b": {
+                    "42176a3ba87e50117965bf41ab4aacee59a8bc": null
+                },
+                "0d": {
+                    "438af483bb09383d421f378be7863c7f8126ff": null,
+                    "9548d9aee0c11f13542fe58eb1480c94941ca1": null
+                },
+                "0e": {
+                    "2f0829d0734267b2772126676a4e964184dbc4": null
+                },
+                "0f": {
+                    "17093c023542f6ed5389f307a077f85577ad3d": null
+                },
+                "10": {
+                    "635accf6377b0ae3b5c3d689d7990b030aa24b": null
+                },
+                "11": {
+                    "878266564ddd413678c2b77b1cf522fb4dc94f": null
+                },
+                "12": {
+                    "9ecfc50db353680f20b2b20fa37daf8997c236": null
+                },
+                "15": {
+                    "3e82d14eb4bf35b53cca3188d8061f2e724c49": null
+                },
+                "16": {
+                    "3fa5fc82b4b7e10bd21b141679c96901366e8d": null,
+                    "dcaf95588e065f3a3cc814e0c07ecc842107a3": null
+                },
+                "18": {
+                    "92d9e135841bc81e8d5b7454268a48a9a89ab3": null
+                },
+                "1b": {
+                    "c087ba5f22b243e292037d529a6f2091f8f85c": null
+                },
+                "1d": {
+                    "6ad50455d531e42e4c4408a49f101c7786bed7": null
+                },
+                "1f": {
+                    "ba2ba2bfb25b6d12af6b341595695c2525f33a": null,
+                    "f4ecf7dd51f423f6a12e437f2a1a6c033cc34a": null
+                },
+                "20": {
+                    "d997a20b43b54b63de9cc68bdf4853ceed294b": null
+                },
+                "22": {
+                    "ad1141cdbb88f6d7d1d6362179b3ab032f901b": null
+                },
+                "23": {
+                    "a72ba505b8973afe803e5d09d511da7aab0590": null,
+                    "a9435fc025e15f451b0ae56c42b84883baccc2": null
+                },
+                "25": {
+                    "919e81fbe163539414de28e83b937df35f29fa": null
+                },
+                "27": {
+                    "6f77def1481a95445fba9cebf8694edd890c80": null,
+                    "d900c262be5bc906d6503f6b9e3eda7b6adb47": null,
+                    "fcaf4ba95f6547d951c973c5c88a191fa7cd5b": null
+                },
+                "29": {
+                    "9a1fe536b6b21555756a35e52690d444b1360f": null
+                },
+                "2a": {
+                    "2df7d85154bdb7a07e29a950e696e373f33133": null,
+                    "d62152188fc1518fb4b9d8afb1dd94b0048f96": null,
+                    "e527d19942201b42e26cc5de95656e190ee11b": null
+                },
+                "2c": {
+                    "0bdc468adb73a5151c8ff8ae046cd458f49c14": null
+                },
+                "2e": {
+                    "6e56ee7fd72ce1fe84fa3a629bd49617d89668": null
+                },
+                "2f": {
+                    "957f69779c9a15143278a289081deb55da1373": null
+                },
+                "31": {
+                    "6b299c70819fcad8bbf9b4ba3bf4d3a8cde13c": null,
+                    "e42399e86c6a5c80bb4bdfbededc01276e7634": null,
+                    "f41926b84e46d7b53970adcf4ec389b0bedf09": null
+                },
+                "32": {
+                    "dfa594573e18d4c099bfadca4eeae1d8e502d6": null
+                },
+                "33": {
+                    "bca169ccf059a80224b1c1c8525b643fc5e0c2": null
+                },
+                "34": {
+                    "bc786ac610d3ab6cd930266e75589d46474a6f": null
+                },
+                "36": {
+                    "5beb0f80b1704b0c5d47e78c5a17e442944d36": null
+                },
+                "38": {
+                    "4d2026849b20f1280fd072bc200fc235bee853": null
+                },
+                "39": {
+                    "89b89df1487db73cf8e69c52c2e7c4019f600f": null,
+                    "baf4f7d96db2c98df5c228d2b1f2e5128f8903": null
+                },
+                "3a": {
+                    "2599f25962d7135d459aeabcc38e92141197ad": null
+                },
+                "3c": {
+                    "625355a4e300314dc881455f933881bd11d2d5": null
+                },
+                "3d": {
+                    "4901726da75a2373bc0578607f4c7ae459919e": null,
+                    "c69e3e53c0daa57b36d94d08dfe0db4e5afccc": null,
+                    "f3c2d1e2475cf91a96b938e3a8eaa3ed8be2b1": null
+                },
+                "41": {
+                    "43f68cf91ccd28b4b4e120eb5ae5a2832e14dd": null
+                },
+                "43": {
+                    "7b2559b8fe06898eac565a09475f4a89748947": null,
+                    "fab821cb23108d161f1dda5d2894d26a761196": null
+                },
+                "48": {
+                    "70facb671ecdfb8158da6274a93d1fbbff9e79": null,
+                    "87d1a235375953a144d50555a4cbcaf08111dd": null,
+                    "c436fd34eb4992d898f30d68aecf9f6960670c": null
+                },
+                "49": {
+                    "2e364b7ae2829a4560670c709c0edb9128a36d": null,
+                    "cc8ef0e116cef009fe0bd72473a964bbd07f9b": null
+                },
+                "4a": {
+                    "110ca1fa7f9d7831dacc1423fef60dba991cda": null
+                },
+                "4b": {
+                    "8a4d5fd8b11602733472f95878f36bf0a87c8b": null
+                },
+                "4c": {
+                    "4bdd5a98f1b7756ec47ea2f923ea34fd79f1a9": null,
+                    "6aee68af92c3f70ae505044dd8e6bc2a947603": null,
+                    "91b566406424ba66df9ebf91fd141f5bfd82d2": null
+                },
+                "4d": {
+                    "f0a85e4af22a649150ac81e5ed4889b2a5276f": null
+                },
+                "4e": {
+                    "a67dd5122d5a7c99c24727ab56a54591140987": null
+                },
+                "51": {
+                    "1af0010f7af08bece37a974df45aac40cdeb67": null
+                },
+                "52": {
+                    "99de4623bc932c57f7962040b7e234f1600e76": null,
+                    "a1309aa61dfa239b04fe4594e3b735f3736ed8": null
+                },
+                "54": {
+                    "78e4c7a781ac74c0b407f36ecb725220d2c34d": null,
+                    "ec7abd6a9724fd4d910088d8c5e9fe4704b7d2": null
+                },
+                "57": {
+                    "64136243dd49de147080fb79d428f515d739f0": null
+                },
+                "58": {
+                    "a2fda91193ae87bb61077de671e1b5ce183715": null
+                },
+                "5a": {
+                    "0ad549bff46804d5ba7b68746343fad13c7f71": null,
+                    "801c96a4fd6004fd297c2892e0759f299ca502": null,
+                    "a436e5c327a495cfa35646a06531514867c11c": null,
+                    "c0a41ed5874e5471519f0e645f5bcf2397cf1d": null
+                },
+                "5b": {
+                    "357e8885d9163db757393341be807719472d7d": null
+                },
+                "5c": {
+                    "cb2dc086dcbc8f88a8361a7b6e76efe7139f3e": null
+                },
+                "5d": {
+                    "48f1737fdc9847e380eb41f3c001f871a402c2": null
+                },
+                "5e": {
+                    "2232759b005d5de25ba779f97bebb3d3ad5d26": null
+                },
+                "61": {
+                    "7e9097b3df5a4843cfbb2ca35b0dbed0a2dd06": null
+                },
+                "62": {
+                    "4fd6be3c5edbe287ef89986b9e4d2abfa9cddc": null
+                },
+                "63": {
+                    "f735a37443e432d6ed423336a857b9d271babd": null
+                },
+                "65": {
+                    "2c0c1c9e89363be959a2d96f924f6aaca35e8e": null
+                },
+                "67": {
+                    "95e71c9483239f2605f92336ade44bbffb8294": null
+                },
+                "6b": {
+                    "9ac8e2cf03c6f0d1bc2a02785fcd60cc971023": null,
+                    "e9d7839bc5e576e86f8aca67a314035a5c4b13": null
+                },
+                "6f": {
+                    "afa5f497ad09e4c46107f8163ba26275bd77e9": null
+                },
+                "70": {
+                    "115403c2280086c45f532698969956f50a4770": null
+                },
+                "72": {
+                    "3272db614861ccca2a16fcc450b53ef5d65712": null
+                },
+                "79": {
+                    "1e2070a78043abbe58200dcb008d7550b4401e": null,
+                    "45bbd028c4daa9879d343a76a71ae379024319": null,
+                    "ba5f8c7fbd7b1ff17f68dcf9661c81165a9339": null
+                },
+                "7a": {
+                    "3f3c205f1b6f771162b54150baf0f9573ce3d8": null,
+                    "826a7e5c32ce9509c2d141d2046c302b9986ed": null
+                },
+                "7b": {
+                    "2f95b49be18b9fc81afd2294e239994ae04952": null
+                },
+                "7c": {
+                    "06a2be9838671aedb4ebdcc3a372f3d84d4ab1": null
+                },
+                "7e": {
+                    "01c056ef19e9a4030acc9cb4d988bdc8967f9b": null
+                },
+                "82": {
+                    "e7806723963ef895ece2bfaa576ab0a4c89b8a": null
+                },
+                "86": {
+                    "843ade66c80a2c5d0bba9b66c1a74c3dca108d": null
+                },
+                "87": {
+                    "043bd5fe48e9bc552d897a4d4abef5308ac134": null,
+                    "cf38ff918944e5b438729a4d3199ffed87e6bf": null
+                },
+                "88": {
+                    "e43b6d69bd0d8ec8a405fb509d6e0931427265": null
+                },
+                "89": {
+                    "7d18e9caad7e5a3af5050e0a4a9fdbc3a85078": null,
+                    "b58777f122d0de0ed77516f305215b5c535a43": null
+                },
+                "8a": {
+                    "9a6894eb1b5187ab2d43e2c416d9cb10814c76": null
+                },
+                "8b": {
+                    "379dc50a2600fe685c9540fc64b8a3d254b419": null,
+                    "d6d0a7640609f56197ece7139956d7d84f6a50": null
+                },
+                "8e": {
+                    "01f096062829f7da4c02ca71227d6d81b36c49": null,
+                    "14afe061e5b29de7ac15ccbda363a9c5f4ea1c": null
+                },
+                "92": {
+                    "57bc1aa7444d281cdb17135e1acb365bfbd952": null
+                },
+                "93": {
+                    "19433b3efe62b3f26c383cc1bfe4669e2ea9f9": null
+                },
+                "97": {
+                    "008ccafbdfc29d8dcaae86683e96a7f2542bb0": null,
+                    "727720008b44bb46abb36c8fed36c6eb91a86b": null,
+                    "c9f42091c3c23cab9876376af490d5660d7297": null
+                },
+                "99": {
+                    "a489993be202c5f3ccc172c2867a4e94063196": null,
+                    "f46d02837846f516b579ac89b35c8ab19e5618": null
+                },
+                "9a": {
+                    "7310d6ef8563a34bbe010624da9aa1ec5f3d91": null
+                },
+                "9c": {
+                    "c6b15e2b2068b0d8933f7b8b476902bf7933ff": null
+                },
+                "9e": {
+                    "cf4752b26968654f41c300fbfa07b2ff1d4144": null
+                },
+                "a1": {
+                    "c1f81c863f1e38fee7ef9c828ebb8803e5132c": null
+                },
+                "a2": {
+                    "d400efff9a4e0c2808c3bc4e73907145d7e8d4": null
+                },
+                "a5": {
+                    "9f640dfb2a0043ad12abc0b5c1e995c6fe3f66": null
+                },
+                "a7": {
+                    "0880775b63b944d28474daa71d5a6c669781ac": null,
+                    "0e4f273edbaa11f1ed7a32efc87548b6360501": null
+                },
+                "aa": {
+                    "43c9dca159b2e696ec42da6069c2ce4f5ec259": null
+                },
+                "ab": {
+                    "8c323edef0eded5abbf133c370dcaf42c32315": null
+                },
+                "ae": {
+                    "f448e9c0bf656c5b3598fb33cb3c7801914d97": null
+                },
+                "af": {
+                    "97ec35c48471d6aadcfb9ba95121635a303b3c": null
+                },
+                "b1": {
+                    "b18774aa73dd6bfaac06373a157c2031297ab1": null
+                },
+                "b2": {
+                    "a7884e6a263f436192df4882003786c61f4baa": null
+                },
+                "b3": {
+                    "5a39a8db9c673f3711db06814efeb16d20a5f8": null,
+                    "b7cafde6d7f2ea35f42312e6a03cccd8f7e999": null
+                },
+                "b4": {
+                    "56c097a4a3932b0c5a10cec59fcf4ddce460d1": null,
+                    "a278142226be79fd25a0dfedb8dd5a5c40afba": null
+                },
+                "b5": {
+                    "8bdc5387e5d3e09e2bf556e32cce0b878b44b3": null,
+                    "c61c956711f981a41e95f7fcf0038436cfbb22": null,
+                    "dad35dee41f6c720ed924a1b58d416fe7bac17": null
+                },
+                "b8": {
+                    "3ab08b160d1780cb8b222fe541c3648102062d": null,
+                    "9cca6c25f0b4288e3f750acb92a17351ec8fc8": null
+                },
+                "b9": {
+                    "120e5799278e676d9420baa94e9ae30bdceaa4": null,
+                    "f40a501b7d4d30d6d96efc97635231ba340034": null
+                },
+                "bb": {
+                    "14187af2f8cfc8c7a120284cf708092dabffd0": null
+                },
+                "bc": {
+                    "3dc190453d835722ce72e54113774bd001f338": null
+                },
+                "bd": {
+                    "7a990fa0622c6803282a9ae63f6f244c07f50e": null
+                },
+                "bf": {
+                    "c28451f6588a0cef3d9ff7b373dac7421ae020": null
+                },
+                "c1": {
+                    "0ca0cb3eba20df1bbdabc8366d4b174ef28c07": null
+                },
+                "c2": {
+                    "dcddb4bbab7a0f7b2ec1718ddbded164eedffd": null
+                },
+                "c6": {
+                    "2d6ebcd6fd62464fe30013e3c7e76934423fc8": null,
+                    "586d88acf0efe58256827fae35c3b16eacfb40": null,
+                    "7b6754bdf7436b8b3249d1cf9cce9564737cc4": null
+                },
+                "c7": {
+                    "f25caa3bd22c442e3264597f27503d34fbbafd": null
+                },
+                "c8": {
+                    "e75dd31dfdbee9eb04e1580c2e35e3fd3dcd2d": null
+                },
+                "cb": {
+                    "1999692bb6720aeb431c6b87b9b384968f3a85": null,
+                    "bd0c7ea1fda9c4c4dd3fe349a2c7e819168125": null
+                },
+                "cc": {
+                    "5d9fd0e2e0a2b925cb34dab3d7a5244b815f71": null,
+                    "b95e5f710d69d3649f055f3d898f669ca92a93": null
+                },
+                "cd": {
+                    "9df17bcc6f0b0f3123d1581e71ef9c0bad7e47": null
+                },
+                "ce": {
+                    "434f1b7c1301c927c4825dc015ea7220670742": null,
+                    "4e5490f6434e4c270072ed27b53e7403c63bd4": null
+                },
+                "d0": {
+                    "624f858398336db6a659b3e4b5fba27a8a40ff": null
+                },
+                "d1": {
+                    "90975f289c79b82f13f9852e57013b159fc6b8": null,
+                    "f2a3c94aa7cd0686c49a0e50f05e018e05769a": null
+                },
+                "d2": {
+                    "0e12a7ccc4664971e4027c093cc5691ad05fcd": null,
+                    "55fb573ea4cf9ff2890dec36422a69975af049": null
+                },
+                "d4": {
+                    "cbd3e34535d83c9913047ef1c43cd2480420d5": null
+                },
+                "d9": {
+                    "0195824f3935caafec2cc439a1040f4780a02c": null,
+                    "d322a10d2a0e699c8ad834f17151580b674afa": null
+                },
+                "dc": {
+                    "19a379eede3072ab69a70d8bf0b281b0357e78": null
+                },
+                "dd": {
+                    "5d37dc1eb19147b3796dc91db89336b23d6d9a": null,
+                    "6dd3caf456909c4800db85208a656c06a61557": null,
+                    "88d04f4bfdc8e2110f89d208b8abbb2810d398": null
+                },
+                "e3": {
+                    "50097f73cf9daa30cabdab3b12ff7a29ff3e86": null
+                },
+                "e4": {
+                    "801a358961eba7134f391b0a791bf9274c5a4e": null,
+                    "f0ff25f5214c17072d154f8be7d6410362b082": null
+                },
+                "ec": {
+                    "8144cb13c5b459e4d7204a11c59ca1cec18872": null
+                },
+                "ee": {
+                    "0f76a9196435031de8f0e3478725605986e2b0": null
+                },
+                "f3": {
+                    "b2a0542687bfd96aa10ab15f2a2ded62f39ed5": null
+                },
+                "f5": {
+                    "2bd9aadee83f058b58a95119ce591137f34449": null,
+                    "94c4601ffa6178581e27ac4565d026b67edbec": null,
+                    "c6ff205dd4ab0ab3232dfe1101a178cc112e3b": null
+                },
+                "f8": {
+                    "0a56c6ea4be3c19b8f776ca75990367360e180": null
+                },
+                "f9": {
+                    "9f45fda03839ba0bb9c4094bec2001dfb4cdfb": null
+                },
+                "fa": {
+                    "a9cfca0836faa6ed4ec6ed2b8f4eec06778503": null
+                },
+                "fc": {
+                    "c682fa7073622c6730ddb2e5248505e2e3d4e0": null,
+                    "e2bf032e7f7dd50f8c8853e22c9affa2eda0b2": null
+                },
+                "fe": {
+                    "30d82ee39c50745224095892b730bedcd324cd": null
+                },
+                "ff": {
+                    "9796517390fb4e4d4aef753534a7cf3f6001b9": null
+                },
+                "info": {},
+                "pack": {}
+            },
+            "ORIG_HEAD": null,
+            "refs": {
+                "heads": {
+                    "master": null
+                },
+                "tags": {}
+            }
+        },
+        ".gitignore": null,
+        "apps": {},
+        "build": {},
+        "configs": {
+            "apps.json": null,
+            "catalog.json": null,
+            "config.json": null
+        },
+        "create_dirs.bat": null,
+        "DirectoryWatcher.exe": null,
+        "dist": {},
+        "electron-builder.json": null,
+        "index.html": null,
+        "Instruction.md": null,
+        "node_modules": {},
+        "package-lock.json": null,
+        "package.json": null,
+        "public": {
+            "logo.svg": null,
+            "welcome.svg": null
+        },
+        "release": {},
+        "src": {
+            "main": {
+                "core": {
+                    "AppManager.ts": null,
+                    "AppManager.ts.new": null,
+                    "ConfigManager.ts": null,
+                    "icon-extractor.ts": null,
+                    "init.ts": null
+                },
+                "index.ts": null,
+                "main.ts": null
+            },
+            "package.json": null,
+            "preload": {
+                "index.ts": null
+            },
+            "renderer": {
+                "App.vue": null,
+                "App.vue.bak": null,
+                "App.vue.new": null,
+                "assets": {
+                    "logo.svg": null,
+                    "welcome.svg": null
+                },
+                "components": {
+                    "AddAppCard.vue": null,
+                    "AppCard.vue": null,
+                    "AppGrid.vue": null,
+                    "SettingsDrawer.vue": null
+                },
+                "index.html": null,
+                "main.ts": null,
+                "tailwind.css": null,
+                "types": {
+                    "components.d.ts": null,
+                    "env.d.ts": null,
+                    "icons.d.ts": null,
+                    "shims-electron.d.ts": null,
+                    "shims-vue.d.ts": null
+                }
+            }
+        },
+        "tsconfig.json": null,
+        "tsconfig.main.json": null,
+        "tsconfig.node.json": null,
+        "vite.config.ts": null
+    }
+}

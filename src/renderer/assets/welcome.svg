@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="240" height="180" viewBox="0 0 240 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景圆形 -->
+  <circle cx="120" cy="90" r="80" fill="url(#paint0_radial)" fill-opacity="0.1"/>
+  
+  <!-- 媒体图标组 -->
+  <g transform="translate(80,50)">
+    <!-- 视频图标 -->
+    <rect x="0" y="0" width="80" height="60" rx="8" fill="url(#paint1_linear)"/>
+    <path d="M30 20V40L50 30L30 20Z" fill="white"/>
+    
+    <!-- 音频波形 -->
+    <path d="M65 25V35M75 20V40M85 15V45" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  
+  <!-- 装饰元素 -->
+  <circle cx="40" cy="40" r="4" fill="#1890FF"/>
+  <circle cx="200" cy="140" r="4" fill="#722ED1"/>
+  <path d="M180 30L190 40L180 50" stroke="#1890FF" stroke-width="2"/>
+  <path d="M60 130L50 140L60 150" stroke="#722ED1" stroke-width="2"/>
+  
+  <defs>
+    <!-- 渐变定义 -->
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(120 90) rotate(90) scale(80)">
+      <stop stop-color="#1890FF"/>
+      <stop offset="1" stop-color="#722ED1" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="paint1_linear" x1="0" y1="0" x2="80" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1890FF"/>
+      <stop offset="1" stop-color="#722ED1"/>
+    </linearGradient>
+  </defs>
+</svg> 

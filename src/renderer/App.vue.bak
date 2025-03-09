@@ -1,0 +1,430 @@
+﻿<template>
+  <a-config-provider :locale="zhCN">
+    <a-layout class="layout">
+      <!-- 渚ц竟锟?-->
+      <a-layout-sider
+        v-model:collapsed="collapsed"
+        :theme="theme"
+        collapsible
+        class="app-sider"
+        width="240"
+        :style="{ background: theme === 'dark' ? '#141414' : '#fff' }"
+      >
+        <div class="logo">
+          <img src="../../public/logo.svg" alt="Logo" class="logo-icon" v-if="!collapsed" />
+          <span v-if="!collapsed">Media Tools</span>
+        </div>
+        
+        <a-menu
+          v-model:selectedKeys="selectedKeys"
+          :theme="theme"
+          mode="inline"
+          class="side-menu"
+        >
+          <a-menu-item
+            v-for="category in categories"
+            :key="category.id"
+            class="menu-item"
+          >
+            <template #icon>
+              <component 
+                :is="getCategoryIcon(category.id)" 
+                class="menu-icon" 
+                :style="{ 
+                  fontSize: collapsed ? '14px' : '18px',
+                  width: collapsed ? '14px' : '18px',
+                  height: collapsed ? '14px' : '18px'
+                }" 
+              />
+            </template>
+            <span>{{ category.name }}</span>
+          </a-menu-item>
+        </a-menu>
+      </a-layout-sider>
+
+      <!-- 涓诲唴瀹瑰尯 -->
+      <a-layout>
+        <a-layout-content class="app-content">
+          <!-- 鍔熻兘鎸夐挳 -->
+          <div class="action-buttons">
+            <a-space>
+              <a-button
+                type="text"
+                class="theme-btn"
+                @click="toggleTheme"
+              >
+                <template #icon>
+                  <SoundOutlined v-if="theme === 'dark'" />
+                  <BulbOutlined v-else />
+                </template>
+              </a-button>
+              <a-button type="text" class="setting-btn" @click="showSettings = true">
+                <template #icon><SettingOutlined /></template>
+              </a-button>
+            </a-space>
+          </div>
+
+          <!-- 搴旂敤鍗＄墖鍒楄〃 -->
+          <template v-if="currentCategory">
+            <app-grid :apps="currentCategory.apps" />
+          </template>
+
+          <!-- 娆㈣繋锟?-->
+          <template v-else>
+            <div class="welcome">
+              <img src="../../public/welcome.svg" alt="Welcome" class="welcome-image" />
+              <h1>娆㈣繋浣跨敤 Media Tools</h1>
+              <p>寮哄ぇ鐨勯煶瑙嗛澶勭悊宸ュ叿锟?/p>
+              <a-button type="primary" size="large" @click="selectedKeys = categories?.[0]?.id ? [categories[0].id] : []">
+                <template #icon><PlayCircleOutlined /></template>
+                寮€濮嬩娇锟?
+              </a-button>
+            </div>
+          </template>
+        </a-layout-content>
+      </a-layout>
+
+      <!-- 璁剧疆鎶藉眽 -->
+      <settings-drawer
+        v-model:visible="showSettings"
+        :settings="settings"
+        @update="handleUpdateSettings"
+      />
+    </a-layout>
+  </a-config-provider>
+</template>
+
+<script lang="ts" setup>
+import { ref, computed, onMounted } from 'vue';
+import { message } from 'ant-design-vue/es';
+import zhCN from 'ant-design-vue/es/locale/zh_CN';
+import AppGrid from './components/AppGrid.vue';
+import SettingsDrawer from './components/SettingsDrawer.vue';
+import { type Config } from '../main/core/ConfigManager';
+import {
+  SoundOutlined,
+  BulbOutlined,
+  SettingOutlined,
+  PlayCircleOutlined,
+  VideoCameraOutlined,
+  CustomerServiceOutlined
+} from '@vicons/antd';
+
+// 瀹氫箟 settings 鐨勭被锟?
+interface AppSettings {
+  theme?: string;
+  language?: string;
+  autoScan?: boolean;
+  scanInterval?: number;
+}
+
+// 鎵╁睍 Window 鎺ュ彛
+declare global {
+  interface Window {
+    electronAPI: {
+      getCategories: () => Promise<any[]>;
+      getSettings: () => Promise<any>;
+      updateSettings: (settings: any) => Promise<boolean>;
+      launchApp: (appConfig: any) => Promise<boolean>;
+      openExternal: (url: string) => Promise<void>;
+      selectDirectory: () => Promise<{ filePath: string } | null>;
+      getConfig: () => Promise<any>;
+      getCategory: (categoryId: string) => Promise<any>;
+      stopApp: (appName: string) => Promise<any>;
+      on: (channel: string, callback: Function) => (() => void) | undefined;
+      minimizeWindow: () => void;
+      maximizeWindow: () => void;
+      closeWindow: () => void;
+    }
+  }
+}
+
+// 鐘讹拷?
+const collapsed = ref(false);
+const theme = ref('dark');
+const config = ref<Config>({ categories: [] });
+const selectedKeys = ref<string[]>([]);
+const settings = ref<AppSettings>({});
+const showSettings = ref(false);
+
+// 璁＄畻灞烇拷?
+const categories = computed(() => config.value.categories);
+const currentCategory = computed(() => 
+  categories.value.find(c => c.id === selectedKeys.value[0])
+);
+
+// 鏂规硶
+const toggleTheme = () => {
+  theme.value = theme.value === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('theme', theme.value);
+};
+
+const handleUpdateSettings = async (newSettings: any) => {
+  try {
+    await window.electronAPI.updateSettings(newSettings);
+    settings.value = newSettings;
+    message.success('设置已更新?);
+  } catch (error) {
+    message.error(`鏇存柊璁剧疆澶辫触: ${error instanceof Error ? error.message : '鏈煡閿欒'}`);
+  }
+};
+
+// 鐢熷懡鍛ㄦ湡
+onMounted(async () => {
+  try {
+    // 鍔犺浇鍒嗙被
+    config.value = await window.electronAPI.getConfig();
+    if (categories.value.length > 0) {
+      selectedKeys.value = [categories.value[0].id];
+    }
+    
+    // 鍔犺浇璁剧疆
+    settings.value = await window.electronAPI.getSettings();
+    
+    // 搴旂敤涓婚
+    theme.value = settings.value.theme || 'light';
+    document.documentElement.setAttribute('theme', theme.value);
+
+    // 鐩戝惉閰嶇疆鏇存柊
+    window.electronAPI.on('config-updated', (newConfig: Config) => {
+      config.value = newConfig;
+    });
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : '鏈煡閿欒';
+    message.error(`鍔犺浇鏁版嵁澶辫触: ${errorMessage}`);
+    
+    // 浣跨敤榛樿璁剧疆
+    settings.value = {
+      theme: 'light',
+      language: 'zh-CN',
+      autoScan: true,
+      scanInterval: 5000
+    };
+    theme.value = 'light';
+    document.documentElement.setAttribute('theme', 'light');
+  }
+});
+
+// 鑾峰彇鍒嗙被鍥炬爣
+const getCategoryIcon = (categoryId: string) => {
+  const iconMap: Record<string, any> = {
+    'video_edit': VideoCameraOutlined,
+    'audio_edit': CustomerServiceOutlined
+  };
+  return iconMap[categoryId] || SettingOutlined;
+};
+</script>
+
+<style lang="scss">
+.layout {
+  min-height: 100vh;
+  
+  .app-sider {
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s;
+    
+    .logo {
+      height: 40px;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      
+      .logo-icon {
+        width: 20px;
+        height: 20px;
+      }
+      
+      span {
+        color: rgba(0, 0, 0, 0.85);
+        font-size: 13px;
+        font-weight: 500;
+      }
+    }
+
+    .side-menu {
+      border-right: none;
+
+      .menu-item {
+        margin: 2px 6px;
+        padding: 0 12px;
+        border-radius: 4px;
+        height: 36px;
+        line-height: 36px;
+
+        :deep(.ant-menu-title-content) {
+          font-size: 14px;
+        }
+
+        :deep(.menu-icon) {
+          font-size: 18px !important;
+          vertical-align: -0.125em;
+        }
+
+        :deep(.ant-menu-item-icon) {
+          font-size: 18px !important;
+        }
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.04);
+        }
+
+        &.ant-menu-item-selected {
+          background-color: #1890ff;
+          color: white;
+        }
+      }
+    }
+
+    // 鏀惰捣鐘舵€佷笅鐨勫浘鏍囧ぇ锟?
+    &.ant-layout-sider-collapsed {
+      .menu-item {
+        :deep(.ant-menu-item-icon) {
+          width: 1px !important;
+          height: 1px !important;
+          svg {
+            width: 1px !important;
+            height: 1px !important;
+          }
+        }
+        :deep(.menu-icon) {
+          width: 1px !important;
+          height: 1px !important;
+          svg {
+            width: 1px !important;
+            height: 1px !important;
+          }
+        }
+      }
+    }
+
+    :deep(.ant-layout-sider-trigger) {
+      height: 28px;
+      line-height: 28px;
+      
+      .anticon {
+        font-size: 12px;
+        vertical-align: middle;
+      }
+    }
+  }
+  
+  .app-content {
+    padding: 24px;
+    background: #f5f5f5;
+    transition: all 0.3s;
+    position: relative;
+    
+    .action-buttons {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      z-index: 1;
+
+      .theme-btn,
+      .setting-btn {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        transition: all 0.3s;
+
+        :deep(.anticon) {
+          font-size: 16px;
+        }
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.04);
+        }
+      }
+    }
+    
+    .welcome {
+      text-align: center;
+      padding: 48px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      
+      .welcome-image {
+        width: 240px;
+        margin-bottom: 32px;
+      }
+
+      h1 {
+        font-size: 32px;
+        margin-bottom: 16px;
+        color: #1f1f1f;
+        background: linear-gradient(45deg, #1890ff, #722ed1);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      
+      p {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 32px;
+      }
+    }
+  }
+}
+
+// 鏆楄壊涓婚
+:root[theme='dark'] {
+  .app-sider {
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+
+    .logo span {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .side-menu .menu-item {
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.08);
+      }
+
+      &.ant-menu-item-selected {
+        background-color: #177ddc;
+      }
+    }
+  }
+
+  .app-content {
+    background: #141414;
+
+    .action-buttons {
+      .theme-btn,
+      .setting-btn {
+        color: rgba(255, 255, 255, 0.65);
+        
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.08);
+        }
+      }
+    }
+
+    .welcome {
+      background: #1f1f1f;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+      h1 {
+        color: #fff;
+        background: linear-gradient(45deg, #177ddc, #531dab);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      p {
+        color: rgba(255, 255, 255, 0.65);
+      }
+    }
+  }
+}
+</style>
+
+
+

@@ -1,0 +1,230 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2024-03-09",
+  "builtinAppsFolder": "./apps",
+  "categories": [
+    {
+      "id": "video_tools",
+      "name": "视频工具",
+      "apps": [
+        {
+          "name": "OBS Studio",
+          "path": "./apps/video_tools/obs/obs64.exe",
+          "icon": "video-camera",
+          "category": "video_tools",
+          "description": "开源的视频录制和直播软件",
+          "type": "builtin",
+          "params": "",
+          "website": "https://obsproject.com/",
+          "downloadUrl": "https://cdn-fastly.obsproject.com/downloads/OBS-Studio-31.0.2-Windows.zip",
+          "iconPath": "./icons/obs.png",
+          "isDownloaded": false,
+          "id": "obs_studio"
+        },
+        {
+          "name": "Bandicam",
+          "path": "./apps/video_tools/bandicam/bdcam.exe",
+          "icon": "video-camera",
+          "category": "video_tools",
+          "description": "高性能的屏幕录制和游戏录制软件",
+          "type": "builtin",
+          "params": "",
+          "downloadUrl": "https://dl.bandicam.com/bdcamsetup.exe",
+          "iconPath": "./icons/bandicam.png",
+          "isDownloaded": false,
+          "id": "bandicam"
+        },
+        {
+          "name": "Camtasia",
+          "path": "./apps/video_tools/camtasia/CamtasiaStudio.exe",
+          "icon": "video-camera",
+          "category": "video_tools",
+          "description": "专业的屏幕录制和视频编辑软件",
+          "type": "builtin",
+          "params": "",
+          "downloadUrl": "https://www.techsmith.com/download/camtasia/",
+          "iconPath": "./icons/camtasia.png",
+          "isDownloaded": false,
+          "id": "camtasia"
+        },
+        {
+          "name": "Captura",
+          "path": "./apps/video_tools/captura/Captura.exe",
+          "icon": "video-camera",
+          "category": "video_tools",
+          "description": "开源的屏幕录制工具",
+          "type": "builtin",
+          "params": "",
+          "downloadUrl": "https://github.com/MathewSachin/Captura/releases/latest/download/Captura-Setup.exe",
+          "iconPath": "./icons/captura.png",
+          "isDownloaded": false,
+          "id": "captura"
+        },
+        {
+          "name": "ShanaEncoder",
+          "path": "./apps/video_tools/shanaencoder/ShanaEncoder.exe",
+          "icon": "video-camera",
+          "category": "video_tools",
+          "description": "简单易用的视频转码工具",
+          "type": "builtin",
+          "params": "",
+          "downloadUrl": "https://shana.pe.kr/shanaencoder_download",
+          "iconPath": "./icons/shanaencoder.png",
+          "isDownloaded": false,
+          "id": "shanaencoder"
+        },
+        {
+          "name": "Streamlabs",
+          "path": "./apps/video_tools/streamlabs/Streamlabs.exe",
+          "icon": "video-camera",
+          "category": "video_tools",
+          "description": "基于OBS的流媒体直播工具，提供更友好的界面和更多功能",
+          "type": "builtin",
+          "params": "",
+          "downloadUrl": "https://streamlabs.com/streamlabs-desktop/download",
+          "iconPath": "./icons/streamlabs.png",
+          "isDownloaded": false,
+          "id": "streamlabs"
+        }
+      ]
+    },
+    {
+      "id": "media_player",
+      "name": "媒体播放器",
+      "apps": [
+        {
+          "id": "potplayer",
+          "name": "PotPlayer",
+          "path": "D:\\AITools\\MediaToolsJs\\apps\\media_player\\potplayer\\PotPlayerSetup64.exe",
+          "icon": "play-circle",
+          "category": "media_player",
+          "description": "强大的多媒体播放器，支持大多数音视频格式",
+          "type": "builtin",
+          "workingDirectory": "D:\\AITools\\MediaToolsJs\\apps\\media_player\\potplayer",
+          "params": "{input}",
+          "downloadUrl": "https://t1.daumcdn.net/potplayer/PotPlayer/Version/Latest/PotPlayerSetup64.exe",
+          "iconPath": "./icons/potplayer.png",
+          "isDownloaded": true
+        },
+        {
+          "id": "mpc_be",
+          "name": "MPC-BE",
+          "path": "D:\\AITools\\MediaToolsJs\\apps\\media_player\\mpc-be\\MPC-BE.1.6.8.5.x64.exe",
+          "icon": "play-circle",
+          "category": "media_player",
+          "description": "轻量级的开源媒体播放器，基于 Media Player Classic",
+          "type": "builtin",
+          "workingDirectory": "D:\\AITools\\MediaToolsJs\\apps\\media_player\\mpc-be",
+          "params": "{input}",
+          "downloadUrl": "https://sourceforge.net/projects/mpcbe/files/latest/download",
+          "iconPath": "./icons/mpc-be.png",
+          "isDownloaded": true
+        },
+        {
+          "name": "MPC-HC",
+          "path": "./apps/media_player/mpc-hc/mpc-hc64.exe",
+          "icon": "play-circle",
+          "iconPath": "./icons/mpc-hc.png",
+          "params": "{input}",
+          "category": "media_player",
+          "description": "轻量级的开源媒体播放器，Media Player Classic - Home Cinema",
+          "type": "builtin",
+          "downloadUrl": "https://github.com/clsid2/mpc-hc/releases/latest/download/MPC-HC.x64.exe",
+          "isDownloaded": false,
+          "id": "mpc_hc"
+        },
+        {
+          "name": "Foobar2000",
+          "path": "./apps/media_player/foobar2000/foobar2000.exe",
+          "icon": "customer-service",
+          "iconPath": "./icons/foobar2000.png",
+          "params": "{input}",
+          "category": "media_player",
+          "description": "高度可定制的音频播放器，支持多种音频格式和插件",
+          "type": "builtin",
+          "downloadUrl": "https://www.foobar2000.org/download",
+          "isDownloaded": false,
+          "id": "foobar2000"
+        },
+        {
+          "name": "AIMP",
+          "path": "./apps/media_player/aimp/AIMP.exe",
+          "icon": "customer-service",
+          "iconPath": "./icons/aimp.png",
+          "params": "{input}",
+          "category": "media_player",
+          "description": "功能强大的音频播放器，支持多种音频格式和音频处理",
+          "type": "builtin",
+          "downloadUrl": "https://www.aimp.ru/?do=download&os=windows",
+          "isDownloaded": false,
+          "id": "aimp"
+        }
+      ]
+    },
+    {
+      "id": "audio_tools",
+      "name": "音频工具",
+      "apps": [
+        {
+          "name": "Audacity",
+          "path": "./apps/audio_tools/audacity/audacity.exe",
+          "icon": "audio",
+          "iconPath": "./icons/audacity.png",
+          "params": "{input}",
+          "category": "audio_tools",
+          "description": "免费开源的音频编辑和录制软件",
+          "type": "builtin",
+          "downloadUrl": "https://github.com/audacity/audacity/releases/latest/download/audacity-win-x64.exe",
+          "isDownloaded": false,
+          "id": "audacity"
+        }
+      ]
+    },
+    {
+      "id": "remote_control",
+      "name": "远程控制",
+      "apps": [
+        {
+          "name": "RustDesk",
+          "path": "./apps/remote_control/rustdesk/RustDesk.exe",
+          "icon": "desktop",
+          "category": "remote_control",
+          "description": "开源的远程桌面软件",
+          "type": "builtin",
+          "params": "",
+          "downloadUrl": "https://github.com/rustdesk/rustdesk/releases/latest/download/rustdesk-1.2.3-windows_x64.exe",
+          "iconPath": "./icons/rustdesk.png",
+          "isDownloaded": false,
+          "id": "rustdesk"
+        },
+        {
+          "id": "todesk",
+          "name": "ToDesk",
+          "path": "D:\\AITools\\MediaToolsJs\\apps\\remote_control\\todesk\\ToDesk_Setup.exe",
+          "icon": "desktop",
+          "category": "remote_control",
+          "description": "免费的远程控制软件",
+          "type": "builtin",
+          "workingDirectory": "D:\\AITools\\MediaToolsJs\\apps\\remote_control\\todesk",
+          "params": "",
+          "downloadUrl": "https://dl.todesk.com/windows/ToDesk_Setup.exe",
+          "iconPath": "./icons/todesk.png",
+          "isDownloaded": true
+        },
+        {
+          "name": "向日葵远程",
+          "path": "./apps/remote_control/sunlogin/SunloginClient.exe",
+          "icon": "desktop",
+          "category": "remote_control",
+          "description": "稳定的远程控制软件",
+          "type": "builtin",
+          "params": "",
+          "downloadUrl": "https://sunlogin.oray.com/download/",
+          "iconPath": "./icons/sunlogin.png",
+          "isDownloaded": false,
+          "id": "sunlogin"
+        }
+      ]
+    }
+  ]
+}

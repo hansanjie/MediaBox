@@ -1,0 +1,40 @@
+{
+  "categories": [
+    {
+      "id": "video-edit",
+      "name": "视频编辑111",
+      "icon": "video-camera",
+      "description": "视频编辑和处理工具",
+      "apps": []
+    },
+    {
+      "id": "audio-edit",
+      "name": "音频编辑",
+      "icon": "sound",
+      "description": "音频编辑和处理工具",
+      "apps": []
+    },
+    {
+      "id": "image-edit",
+      "name": "图片编辑",
+      "icon": "picture",
+      "description": "图片编辑和处理工具",
+      "apps": []
+    }
+  ],
+  "settings": {
+    "theme": "dark",
+    "language": "zh-CN",
+    "autoScan": true,
+    "scanInterval": 5000,
+    "builtinAppsUpdateUrl": "https://example.com/api/builtin-apps/latest",
+    "checkUpdatesInterval": 86400000
+  },
+  "updates": {
+    "builtinApps": {
+      "url": "https://example.com/api/builtin-apps/latest",
+      "checkOnStartup": true,
+      "lastChecked": null
+    }
+  }
+} 

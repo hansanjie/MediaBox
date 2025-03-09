@@ -1,0 +1,10 @@
+{
+  "builtinAppsFolder": "./apps",
+  "categories": [
+    {
+      "id": "video_edit",
+      "name": "视频编辑",
+      "apps": []
+    }
+  ]
+}

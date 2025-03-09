@@ -1,0 +1,44 @@
+{
+  "appId": "com.electron.mediatools",
+  "productName": "Media Tools",
+  "asar": false,
+  "directories": {
+    "output": "release",
+    "buildResources": "build"
+  },
+  "files": [
+    "dist/**/*",
+    "build/**/*",
+    "package.json",
+    "configs/**/*" 
+  ],
+  "extraResources": [
+    {
+      "from": "dist/renderer",
+      "to": "renderer"
+    },
+    {
+      "from": "build",
+      "to": "build"
+    }
+  ],
+  "win": {
+    "icon": "build/icon.ico",
+    "target": [
+      {
+        "target": "portable",
+        "arch": ["x64"]
+      }
+    ],
+    "sign": false,
+    "signAndEditExecutable": false,
+    "signDlls": false,
+    "verifyUpdateCodeSignature": false
+  },
+  "portable": {
+    "artifactName": "MediaTools-Portable.exe"
+  },
+  "compression": "normal",
+  "removePackageScripts": true,
+  "removePackageKeywords": true
+}
