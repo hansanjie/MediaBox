@@ -92,7 +92,12 @@ const api: ElectronAPI = {
   downloadApp: (url: string, appName: string, category: string) => 
     ipcRenderer.invoke('download-app', url, appName, category),
   checkAppDownloaded: (appPath: string) => 
-    ipcRenderer.invoke('check-app-downloaded', appPath)
+    ipcRenderer.invoke('check-app-downloaded', appPath),
+
+  // 添加查找最匹配的 exe 文件的方法
+  findClosestExe: (directory: string, appName: string) => {
+    return ipcRenderer.invoke('find-closest-exe', directory, appName);
+  },
 };
 
 contextBridge.exposeInMainWorld('electronAPI', api); 

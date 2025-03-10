@@ -26,6 +26,7 @@ export interface ElectronAPI {
   getExeIcon: (path: string) => Promise<string | null>;
   downloadApp: (url: string, appName: string, category: string) => Promise<boolean>;
   checkAppDownloaded: (appPath: string) => Promise<boolean>;
+  findClosestExe: (directory: string, appName: string) => Promise<string>;
 }
 
 declare global {

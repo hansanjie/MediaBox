@@ -27,12 +27,12 @@
     "language": "zh-CN",
     "autoScan": true,
     "scanInterval": 5000,
-    "builtinAppsUpdateUrl": "https://example.com/api/builtin-apps/latest",
+    "builtinAppsUpdateUrl": "https://raw.githubusercontent.com/hansanjie/MediaBox/refs/heads/master/configs/builtin-apps.json",
     "checkUpdatesInterval": 86400000
   },
   "updates": {
     "builtinApps": {
-      "url": "https://example.com/api/builtin-apps/latest",
+      "url": "https://raw.githubusercontent.com/hansanjie/MediaBox/refs/heads/master/configs/builtin-apps.json",
       "checkOnStartup": true,
       "lastChecked": null
     }

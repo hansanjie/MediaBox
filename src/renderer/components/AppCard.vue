@@ -179,6 +179,7 @@ import { message, Progress } from 'ant-design-vue/es';
 import { Modal } from 'ant-design-vue/es';
 import type { FormInstance } from 'ant-design-vue/es/form';
 import type { AppConfig } from '../../main/core/ConfigManager';
+import { getIconPath } from '../config/icons';
 
 // 扩展AppConfig类型，只增加downloadUrl和isDownloaded字段
 interface ExtendedAppConfig extends AppConfig {
@@ -201,6 +202,7 @@ declare const window: Window & {
     ipcRenderer: {
       invoke: (channel: string, ...args: any[]) => Promise<any>;
     };
+    findClosestExe: (directory: string, appName: string) => Promise<string>;
   }
 };
 
@@ -435,6 +437,13 @@ const handleIconError = () => {
 
 const loadExeIcon = async () => {
   try {
+    // 首先尝试从预定义图标中获取
+    const predefinedIcon = getIconPath(props.app.name);
+    if (predefinedIcon) {
+      iconBase64.value = `${window.location.origin}${predefinedIcon}`;
+      return;
+    }
+
     if (props.app.path && props.app.path.toLowerCase().endsWith('.exe')) {
       // 检查是否是 Electron 应用
       const isElectronApp = props.app.path.toLowerCase().includes('\\resources\\') || 
@@ -457,7 +466,11 @@ const loadExeIcon = async () => {
       
       // 如果获取失败，尝试使用自定义图标
       if (props.app.iconPath) {
-        iconBase64.value = `file://${props.app.iconPath}`;
+        // 使用绝对路径
+        const iconPath = props.app.iconPath.startsWith('./') 
+          ? `${window.location.origin}${props.app.iconPath.substring(1)}`
+          : props.app.iconPath;
+        iconBase64.value = iconPath;
         return;
       }
       
@@ -465,45 +478,61 @@ const loadExeIcon = async () => {
       iconBase64.value = null;
     } else {
       // 非 exe 文件使用自定义图标
-      iconBase64.value = props.app.iconPath ? `file://${props.app.iconPath}` : null;
+      if (props.app.iconPath) {
+        // 使用绝对路径
+        const iconPath = props.app.iconPath.startsWith('./') 
+          ? `${window.location.origin}${props.app.iconPath.substring(1)}`
+          : props.app.iconPath;
+        iconBase64.value = iconPath;
+      } else {
+        iconBase64.value = null;
+      }
     }
   } catch (error) {
     console.error('获取图标失败:', error);
-    // 发生错误时使用自定义图标或默认图标
-    iconBase64.value = props.app.iconPath ? `file://${props.app.iconPath}` : null;
+    // 发生错误时使用默认图标
+    iconBase64.value = null;
   }
 };
 
 // 监听下载进度
-const handleDownloadProgress = (data: { appName: string; progress: number; status?: string; path?: string; workingDirectory?: string }) => {
+const handleDownloadProgress = async (data: { appName: string; progress: number; status?: string; path?: string; workingDirectory?: string }) => {
   console.log('Download progress:', data);
   if (data && data.appName === props.app.name) {
     downloadProgress.value = parseFloat(data.progress.toFixed(1));
     if (data.status) {
       downloadStatus.value = data.status as any;
       if (data.status === 'completed' && data.path) {
-        const updatedApp: ExtendedAppConfig = {
-          id: props.app.id,
-          name: props.app.name,
-          path: data.path,
-          icon: props.app.icon,
-          category: props.app.category,
-          description: props.app.description,
-          type: props.app.type,
-          workingDirectory: data.workingDirectory,
-          params: props.app.params,
-          website: props.app.website,
-          downloadUrl: props.app.downloadUrl,
-          iconPath: props.app.iconPath,
-          isDownloaded: true
-        };
-        emit('update', updatedApp);
-        emit('download-complete', updatedApp);
-        
-        setTimeout(() => {
-          downloadStatus.value = null;
-          downloadProgress.value = 0;
-        }, 1500);
+        try {
+          // 搜索最匹配的 exe 文件
+          const exePath = await window.electronAPI.findClosestExe(data.path, props.app.name);
+          
+          const updatedApp: ExtendedAppConfig = {
+            id: props.app.id,
+            name: props.app.name,
+            path: exePath || data.path, // 如果找到匹配的 exe 则使用它，否则使用原路径
+            icon: props.app.icon,
+            category: props.app.category,
+            description: props.app.description,
+            type: props.app.type,
+            workingDirectory: data.workingDirectory,
+            params: props.app.params,
+            website: props.app.website,
+            downloadUrl: props.app.downloadUrl,
+            iconPath: props.app.iconPath,
+            isDownloaded: true
+          };
+          emit('update', updatedApp);
+          emit('download-complete', updatedApp);
+          
+          setTimeout(() => {
+            downloadStatus.value = null;
+            downloadProgress.value = 0;
+          }, 1500);
+        } catch (error) {
+          console.error('查找启动文件失败:', error);
+          message.error('查找启动文件失败');
+        }
       }
     }
   }

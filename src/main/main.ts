@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, dialog, Menu, nativeImage } from 'electron';
+import { app, BrowserWindow, ipcMain, dialog, Menu, MenuItem, nativeImage } from 'electron';
 import { join } from 'path';
 import path from 'path';
 import { watch } from 'chokidar';
@@ -470,6 +470,16 @@ function registerIpcHandlers() {
       return false;
     }
   });
+
+  // 添加查找最匹配的 exe 文件的处理程序
+  ipcMain.handle('find-closest-exe', async (_event, directory: string, appName: string) => {
+    try {
+      return await appManager.findClosestExe(directory, appName);
+    } catch (error) {
+      console.error('查找最匹配的 exe 文件失败:', error);
+      throw error;
+    }
+  });
 }
 
 app.whenReady().then(() => {
@@ -678,7 +688,8 @@ const createWindow = () => {
       contextIsolation: true,
       sandbox: false,
       preload: join(__dirname, '../preload/index.js'),
-      webSecurity: true // 恢复 webSecurity
+      webSecurity: true, // 恢复 webSecurity
+      devTools: !app.isPackaged // 只在开发环境启用开发者工具
     }
   });
 
@@ -687,6 +698,35 @@ const createWindow = () => {
 
   // 创建应用菜单
   createAppMenu();
+
+  // 根据环境设置开发者工具
+  if (!app.isPackaged) {
+    // 开发环境：添加开发者工具菜单项
+    const devToolsMenuItem = {
+      label: '开发者工具',
+      submenu: [
+        {
+          label: '打开开发者工具',
+          accelerator: process.platform === 'darwin' ? 'Alt+Command+I' : 'Alt+Shift+I',
+          click: () => mainWindow?.webContents.openDevTools()
+        }
+      ]
+    };
+    const menu = Menu.getApplicationMenu();
+    if (menu) {
+      menu.append(new MenuItem(devToolsMenuItem));
+      Menu.setApplicationMenu(menu);
+    }
+  } else {
+    // 生产环境：禁用开发者工具快捷键
+    mainWindow.webContents.on('before-input-event', (event, input) => {
+      // 阻止 Ctrl+Shift+I 和 F12
+      if ((input.control && input.shift && input.key.toLowerCase() === 'i') ||
+          (input.key === 'F12')) {
+        event.preventDefault();
+      }
+    });
+  }
 
   const loadIndexFile = (indexPath: string) => {
     if (!mainWindow) return;
